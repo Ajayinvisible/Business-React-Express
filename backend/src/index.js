@@ -1,5 +1,6 @@
 import express, { json } from "express";
 import http, { Server } from "http";
+import cors from "cors";
 import dotenv from "dotenv";
 import webRouter from "./routers/index.js";
 import connection from "./config/Connection.js";
@@ -11,6 +12,7 @@ const server = http.createServer(app);
 
 app.use(express.json());
 app.use(express.urlencoded({extends:true}));
+app.use(cors());
 
 
 connection().then((res)=>{
